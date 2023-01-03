@@ -163,7 +163,7 @@ for single_dataset in datasets:
         classifiers.append(clf)
         metric_points.append(point)
         # w ten sposób powstaje lista 20 klasyfikatorów i lista ich ocen metryką
-    """
+    
     #print(classifiers, metric_points)
 
     scores = []
@@ -175,7 +175,7 @@ for single_dataset in datasets:
     #mean_score = np.mean(scores)
     #std_score = np.std(scores)
     #print("Accuracy score: %.3f (%.3f)" % (mean_score, std_score))
-    """
+    
     # obliczanie accuracy score dla głosowania klasyfikatorów ważonego metrykami
     predict_all_2 = w_predict_2(classifiers, metric_points, X_test)
     accuracy_w_2 = accuracy_score(y_test, predict_all_2)
