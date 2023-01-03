@@ -152,7 +152,7 @@ for single_dataset in datasets:
     for i in range (20):
         X_train_bag, y_train_bag = take_random_from(X_train, y_train) #train_test_split(X_train, y_train, test_size=.70, random_state=1234)
         cc.fit(X_train_bag,y_train_bag)
-        point = cc.complexity[14]
+        point = cc.complexity[14] # ballanced accuracy
 
         clf = DecisionTreeClassifier()
         rkf = RepeatedKFold(n_splits=5, n_repeats=10, random_state=1234)
@@ -162,7 +162,8 @@ for single_dataset in datasets:
             clf.fit(X_trainn, y_trainn)
         classifiers.append(clf)
         metric_points.append(point)
-
+        # w ten sposób powstaje lista 20 klasyfikatorów i lista ich ocen metryką
+    """
     #print(classifiers, metric_points)
 
     scores = []
@@ -174,7 +175,7 @@ for single_dataset in datasets:
     #mean_score = np.mean(scores)
     #std_score = np.std(scores)
     #print("Accuracy score: %.3f (%.3f)" % (mean_score, std_score))
-
+    """
     # obliczanie accuracy score dla głosowania klasyfikatorów ważonego metrykami
     predict_all_2 = w_predict_2(classifiers, metric_points, X_test)
     accuracy_w_2 = accuracy_score(y_test, predict_all_2)
