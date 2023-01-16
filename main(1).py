@@ -135,7 +135,6 @@ for single_dataset in datasets:
     scores_out_max = []
 
     for train_index, test_index in kf_out.split(X):
-        print("fold")
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
