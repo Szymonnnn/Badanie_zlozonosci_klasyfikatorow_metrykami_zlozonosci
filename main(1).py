@@ -34,7 +34,7 @@ def take_random_from(X, y):
     for i in range(len(y)):
         chosen_indexes.append(random.choice(indexes))
 
-    chosen_indexes = list(dict.fromkeys(chosen_indexes))
+    #chosen_indexes = list(dict.fromkeys(chosen_indexes))
 
     return_X = np.zeros((int(len(chosen_indexes)), len(X[0])))
     return_y = []
@@ -148,7 +148,7 @@ for single_dataset in datasets:
             X_train_bag, y_train_bag = take_random_from(X_train,
                                                         y_train)  # train_test_split(X_train, y_train, test_size=.70, random_state=1234)
             cc.fit(X_train_bag, y_train_bag)
-            point = cc.complexity[14]  # ballanced accuracy
+            point = cc.complexity[14]  # balanced accuracy
 
             clf = DecisionTreeClassifier()
             for train_index, test_index in rkf.split(X_train_bag):
