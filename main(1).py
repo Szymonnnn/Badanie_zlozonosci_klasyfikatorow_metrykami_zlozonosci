@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import problexity as px
 import random
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import balanced_accuracy_score
 from sklearn.model_selection import KFold
 
 from sklearn.tree import DecisionTreeClassifier
@@ -126,7 +126,7 @@ for single_dataset in datasets:
     # podział na zbiór treningowy i testowy
     #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.30, random_state=1234)
 
-    kf_out = KFold(n_splits=5, shuffle=True, random_state=1234)
+    kf_out = RepeatedKFold(n_splits=2, n_repeats=5, random_state=1234)
     scores_out_wazone_metrykami = []
     scores_out_odwrotnie_wazone = []
     scores_out_bagging = []
@@ -164,7 +164,7 @@ for single_dataset in datasets:
         scores = []
         for c in classifiers:
             predict = c.predict(X_test)
-            accuracy_score_ = accuracy_score(y_test, predict)
+            accuracy_score_ = balanced_accuracy_score(y_test, predict)
             scores.append(accuracy_score_)
         # mean_score = np.mean(scores)
         # std_score = np.std(scores)
