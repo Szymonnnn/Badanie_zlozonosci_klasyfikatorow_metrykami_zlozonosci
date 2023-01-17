@@ -17,8 +17,8 @@ ASSUMPTION_2 = 'assumption2'  # funkcja zwraca odpowiedź zgłosowania większo�
 
 
 ass = {
-    'assumption1': lambda value: value * value,
-    'assumption2': lambda value: 1 * (1 / (value * value))
+    'assumption1': lambda value: pow(value, 2),
+    'assumption2': lambda value: 1 / pow(value, 2)
 }
 
 
@@ -99,8 +99,7 @@ def bag_predict(classifiers_list, x_test_samples):
     return outcome_list
 
 
-datasets = ['bands', 'ionosphere', 'bupa', 'heart', 'hepatitis', 'mammographic', 'monk-2', 'pima', 'phoneme', 'wdbc',
-            'wisconsin', 'appendicitis', 'titanic']
+datasets = ['bands', 'ionosphere', 'bupa', 'heart', 'hepatitis', 'mammographic', 'monk-2', 'pima', 'phoneme', 'wdbc', 'wisconsin', 'appendicitis', 'titanic']
 #datasets = ['bands']
 
 # #datasets=['wisconsin', 'appendicitis', 'pima', 'wdbc'
@@ -187,7 +186,7 @@ for single_dataset in datasets:
         # max accuracy score z wszystkich klasyfikatorów w baggingu
         #print(round(np.max(scores), 3))
         scores_out_max.append(round(np.max(scores), 3))
-    
+
     mean_scores_out_wazone_metrykami = np.mean(scores_out_wazone_metrykami)
     mean_scores_out_odwrotnie_wazone = np.mean(scores_out_odwrotnie_wazone)
     mean_scores_out_bagging = np.mean(scores_out_bagging)
