@@ -106,7 +106,7 @@ datasets = ['bands', 'ionosphere', 'bupa', 'heart', 'hepatitis', 'mammographic',
 
 
 def compute_values(prediction_result, test_y):
-    accuracy_result = accuracy_score(test_y, prediction_result)
+    accuracy_result = balanced_accuracy_score(test_y, prediction_result)
     mean_score_result = np.mean(accuracy_result)
     std_score_result = np.std(accuracy_result)
     #print("%.3f" % mean_score_result)
