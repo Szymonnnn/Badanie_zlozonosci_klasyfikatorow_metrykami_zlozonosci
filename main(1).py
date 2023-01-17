@@ -195,6 +195,10 @@ for single_dataset in datasets:
 
     print(single_dataset)
     print()
+    print(scores_out_wazone_metrykami)
+    print(scores_out_odwrotnie_wazone)
+    print(scores_out_bagging)
+    print()
     print(mean_scores_out_wazone_metrykami)
     print(mean_scores_out_odwrotnie_wazone)
     print(mean_scores_out_bagging)
